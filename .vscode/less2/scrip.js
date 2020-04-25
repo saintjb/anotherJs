@@ -1,11 +1,20 @@
-let soldier = {
-    health: 40,
-    armor: 100
-};
+window.addEventListener('DOMContentLoaded', function(){
+    let box = document.getElementById('btn');
+    // box.addEventListener('touchstart', function(event){
+    //     event.preventDefault();
+    //     console.log('Button touchstart');
+    //     console.log(event.changedTouches);
+    //     console.log(event.touches);
+    //     console.log(event.targetTouches);
+    //     console.log(event.target);
 
-let Jack = {
-    health:200,
-};
-
-Jack.__proto__ = soldier;
-alert(Jack.armor);
+    // });
+    box.addEventListener('touchmove', function(event){
+        event.preventDefault();
+        console.log('Button touchmove ' + event.touches[0].pageX);
+    });
+    // box.addEventListener('touchend', function(event){
+    //     event.preventDefault();
+    //     console.log('Button touchend');
+    // });
+});
