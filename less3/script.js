@@ -1,27 +1,21 @@
-class Rectangle{
-    constructor(width, height){
-        this.width = width;
-        this.height = height;
-    }
-    calcArea(){
-        return this.width * this.height
-    }
+function shoot(arrow, headshot, fail){
+    console.log('You make a shot...');
+    setTimeout(function(){
+        Math.random() > .5 ? headshot({}): fail('You missed');
+    }, 3000);
 }
 
-const square = new Rectangle(10, 20);
-
-let b = square.calcArea();
-// document.write('<br>' + b);
-
-let c = ['cd', 'youtube', 'vimeo'],
-    blog = ['word', 'livej', 'blogger'],
-    intern = [...c, ...blog, 'faceb'];
-
-
-function log(a, b, c){
-    console.log(a);
-    console.log(b);
-    console.log(c);
+function win(){
+    console.log('You won');
 }
 
-log(...c);
+function lose(){
+    console.log('You lose');
+}
+shoot({}, function(mark){
+    console.log('Yep');
+    win();
+}, function(miss){
+    console.error(miss);
+    lose();
+});
